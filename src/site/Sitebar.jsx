@@ -29,7 +29,7 @@ const NavLinks = styled.div`
 `
 
 const LOButton = styled.button`
-    color: #FF9F1C;
+    color: rgb(65, 105, 65);
     background-color: transparent;
     border: none;
     width: auto;
@@ -43,7 +43,7 @@ const Sitebar = (props) => {
     return(
         <div>
             <Nav>
-                <H><FontAwesomeIcon icon={faSeedling} color='green'/>PlantIt</H>
+                <H><FontAwesomeIcon icon={faSeedling} color='rgb(65, 105, 65)'/>PlantIt</H>
                 <NavLinks>
                     <li><Link to='/' style={{textDecoration: 'none', color: 'white'}}>Home</Link></li>
                     {localStorage.token ?
