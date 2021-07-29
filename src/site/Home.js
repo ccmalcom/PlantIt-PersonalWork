@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     background-size: cover;
     background-position: center;
     height: auto;
-    
+    padding-top: 80px
 `
 const Title = styled.div`
     font-family: 'Yeseva One';

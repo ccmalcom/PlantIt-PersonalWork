@@ -8,6 +8,10 @@ import GardenView from './GardenView';
 import GardenEdit from './GardenEdit';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+    padding-top: 80px;
+`
+
 const GardenIndex = (props) => {
     
     const [plants, setPlants] = useState([]);
@@ -59,7 +63,7 @@ useEffect(() => {
 
 
 return (
-<div>
+<Wrapper>
     <Container>
         {/* <Button2 onClick={fetchGarden}>Refresh MyGarden</Button2> */}
         <div>
@@ -72,7 +76,7 @@ return (
         {editModalActive ? <GardenEdit token={props.token} fetchGarden={fetchGarden} plantToView={plantToView} setEditModalActive={setEditModalActive}/>: null }
     </div>
     </Container>
-    </div>
+    </Wrapper>
 )
 }
 

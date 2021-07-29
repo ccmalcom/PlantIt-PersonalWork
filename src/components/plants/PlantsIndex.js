@@ -87,7 +87,7 @@ const PlantsIndex = (props) => {
 
     useEffect(() => {
         fetchPlants();
-    })
+    }, [])
  
     plants.sort((a, b) => a.plantName.localeCompare(b.plantName));        
 
