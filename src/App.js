@@ -42,13 +42,16 @@ function App() {
   return (
     <div className="App">
       {console.log(sessionToken)}
-      <Sitebar clearSession={clearSession}/>
-      <Home  updateToken={updateToken} />
+      <Router>
+
+      <Sitebar clearSession={clearSession} updateToken={updateToken} token={sessionToken} />
+      </Router>
+      {/* <Home  updateToken={updateToken} token={sessionToken} /> */}
       
       {/* <Auth updateToken={updateToken}/> */}
       
-      <GardenIndex token={sessionToken}/>
-      <PlantsIndex token={sessionToken}/>
+      {/* <GardenIndex token={sessionToken}/> */}
+      {/* <PlantsIndex token={sessionToken}/> */}
 
     </div>
   );

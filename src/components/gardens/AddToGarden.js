@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const AddToGarden = (props) =>{
     const plantName = props.plantToGarden.plantName
@@ -44,7 +45,7 @@ const AddToGarden = (props) =>{
                 <p>You can now keep track this plant in the MyGarden section of the site. Click the button below to go there now, or the back arrow to return to the plant index!</p>
             </ModalBody>
             <ModalFooter>
-            <button>Go to MyGarden</button>
+            <Link to='/garden'><button>Go to MyGarden</button></Link>
             </ModalFooter>
         </Modal>
     )

@@ -88,6 +88,8 @@ const PlantsIndex = (props) => {
     useEffect(() => {
         fetchPlants();
     }, [])
+ 
+    plants.sort((a, b) => a.plantName.localeCompare(b.plantName));        
 
 const Button1 = styled.button `
 border: none;
@@ -109,7 +111,7 @@ color: white;
             <div>
                 <Search />
                 <Button1 onClick={createActiveOn}>PlantIt!</Button1>
-                <DisplayPlants plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
+                <DisplayPlants  plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
             </div>
             
             <div>

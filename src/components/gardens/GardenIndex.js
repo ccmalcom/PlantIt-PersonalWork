@@ -55,9 +55,9 @@ const viewOff = () => {
         setPlantToDelete(plant);
     }
 
-// useEffect(() => {
-    // fetchGarden();
-// }, [])
+useEffect(() => {
+    fetchGarden();
+}, [])
 
 const Button1 = styled.button `
 border: none;
@@ -89,10 +89,8 @@ color: white;
 
 return (
 <div>
-        {!buttonClicked ? 
-    <Button1 onClick={()=>{fetchGarden(); setButtonClicked(true)}}>Load MyGarden</Button1> :
     <Container>
-        <Button2 onClick={fetchGarden}>Refresh MyGarden</Button2>
+        {/* <Button2 onClick={fetchGarden}>Refresh MyGarden</Button2> */}
         <div>
             <GardenTable plants={plants} plantToView={plantToView} viewPlant={viewPlant} viewOn={viewOn} fetchGarden={fetchGarden} token={props.token} deletePlant={deletePlant} plantToDelete={plantToDelete} />
 
@@ -103,7 +101,6 @@ return (
         {editModalActive ? <GardenEdit token={props.token} fetchGarden={fetchGarden} plantToView={plantToView} setEditModalActive={setEditModalActive}/>: null }
     </div>
     </Container>
-        }
     </div>
 )
 }
