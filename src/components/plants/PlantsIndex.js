@@ -9,6 +9,29 @@ import DeletePlant from './DeletePlant';
 import Search from '../searchBar/Search';
 import styled from 'styled-components';
 
+const Button1 = styled.button `
+border: none;
+height: auto;
+width: auto;
+padding: 10px 10px;
+border-radius: 15px;
+background-color: rgb(65, 105, 65, 0.9);
+font-family: 'Yeseva One';
+font-size: 1em;
+color: white;
+&:hover{
+    background-color: #6C757D;
+    border-color: #6C757D;
+    `
+    
+    const FlexDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    font-family: 'Yeseva One';
+    text-align: center
+`
 const PlantsIndex = (props) => {
 
     const [plants, setPlants] = useState([]);
@@ -91,27 +114,17 @@ const PlantsIndex = (props) => {
  
     plants.sort((a, b) => a.plantName.localeCompare(b.plantName));        
 
-const Button1 = styled.button `
-border: none;
-height: auto;
-width: auto;
-padding: 10px 10px;
-border-radius: 15px;
-background-color: rgb(65, 105, 65, 0.9);
-font-family: 'Yeseva One';
-font-size: 1em;
-color: white;
-&:hover{
-    background-color: #6C757D;
-    border-color: #6C757D;
-`
 
     return (
         <Container>
             <div>
-                <Search />
+                <FlexDiv>
+                <h1>Plant Index</h1>
+                <p>If the plant exists in our database, you can find it below. <br/> If you can't find what you're looking for, add the plant to our database with the button!</p>
                 <Button1 onClick={createActiveOn}>PlantIt!</Button1>
+                </FlexDiv>
                 <DisplayPlants  plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
+            <Search />
             </div>
             
             <div>

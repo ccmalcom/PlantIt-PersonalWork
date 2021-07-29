@@ -59,7 +59,7 @@ const viewOff = () => {
 
 useEffect(() => {
     fetchGarden();
-})
+}, [])
 
 
 return (

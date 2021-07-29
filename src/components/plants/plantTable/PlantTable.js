@@ -46,7 +46,6 @@ const DisplayPlants = (props) => {
 
     return (
         <>
-            <h2>Plant Index</h2>
             {/* <button onClick={props.sortByName}>Sort By Name</button> */}
             {/* <button onClick={props.sortByRecent}>Sort By Recent</button> */}
             <Table striped>
