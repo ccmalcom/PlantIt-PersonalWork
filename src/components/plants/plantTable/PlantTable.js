@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react';
 import styled from 'styled-components';
-import { Button, Table } from 'reactstrap'
+import { Table } from 'reactstrap'
 import Pagination from '../../../Pagination';
 // import './Plant.css'
 

@@ -6,9 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import GardenIndex from '../components/gardens/GardenIndex.js';
 
-const Div = styled.div `
-    align-content: left;
-`
 const Nav = styled.nav`
 list-style: none;
 display: flex;
@@ -17,11 +14,6 @@ width: 100vw;
 height: 60px;
 background-color: #0f0f0f;
 padding: 0 8%;
-`
-
-const Logo = styled.img`
-height: 50px;
-width: 200px;
 `
 
 const NavLinks = styled.div`

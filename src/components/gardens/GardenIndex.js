@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 //import DisplayPlants from './plantTable/PlantTable';
 //import CreatePlant from './createPlant/CreatePlant';
 //import PlantView from './PlantView';
-import { Container, Row } from 'reactstrap';
+import { Container } from 'reactstrap';
 import GardenTable from './GardenTable';
 import GardenView from './GardenView';
 import GardenEdit from './GardenEdit';
-import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
 
 const GardenIndex = (props) => {
     
-    const [buttonClicked, setButtonClicked] = useState(false)
     const [plants, setPlants] = useState([]);
     const [viewActive, setViewActive] = useState(false);
     const [plantToView, setPlantToView] = useState([]);
@@ -57,34 +55,7 @@ const viewOff = () => {
 
 useEffect(() => {
     fetchGarden();
-}, [])
-
-const Button1 = styled.button `
-border: none;
-height: 6vh;
-border-radius: 15px;
-background-color: rgb(65, 105, 65, 0.9);
-font-family: 'Yeseva One';
-font-size: 1.5em;
-color: white;
-&:hover{
-    background-color: #6C757D;
-    border-color: #6C757D;
-`
-const Button2 = styled.button `
-border: none;
-height: auto;
-width: auto;
-padding: 10px 10px;
-border-radius: 15px;
-background-color: rgb(65, 105, 65, 0.9);
-font-family: 'Yeseva One';
-font-size: 1em;
-color: white;
-&:hover{
-    background-color: #6C757D;
-    border-color: #6C757D;
-`
+})
 
 
 return (

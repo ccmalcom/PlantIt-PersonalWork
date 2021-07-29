@@ -3,7 +3,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from './Register';
 import Login from './Login';
 import styled from 'styled-components';
-import './Modal.css';
 
 const Button1 = styled.button `
 border: none;
