@@ -1,0 +1,60 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Yeseva+One&display=swap');
+
+/*Container*/
+
+
+/*Sitebar*/
+.sitebar {
+  font-family: 'Yeseva One';
+  color: white;
+  background-color:  rgb(65, 105, 65);
+  height: 70px;
+  width: 100vw;
+  padding: 15px;
+  
+}
+
+
+.App {
+  height: 100vh;
+  /* width: 150vw; */
+
+  overflow: auto;
+  background-color: rgb(132, 205, 230);
+}
+
+
+
+/*Auth*/
+.Login {
+  height: 59vh;
+  margin-left: 25px;
+  width: 38vw;
+  background-color: lightgreen;
+  padding: 25px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-family: 'Yeseva One';
+  color: white;
+}
+
+
+.register{
+  font-size: 20px;
+}
+
+
+
+/* Footer */
+footer {
+  font-family: 'Nunito';
+  background-color: rgb(132, 205, 230);
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  margin-top: 30px;
+
+}

@@ -1,0 +1,31 @@
+
+
+
+
+.Login {
+    height: 35vh;
+    width: 22vw;
+    background-color: rgb(65, 105, 65);
+    padding: 25px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: 'Yeseva One';
+    color: white;
+}
+button{
+    width: 19vw;
+    align-content: center;
+}
+
+/*Register Modal*/
+
+.Register {
+    height: 55vh;
+    width: 25vw;
+    background-color: rgb(65, 105, 65);
+    padding: 25px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: 'Yeseva One';
+    color: white;
+}
