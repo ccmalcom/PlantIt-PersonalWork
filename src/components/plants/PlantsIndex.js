@@ -3,14 +3,13 @@ import DisplayPlants from './plantTable/PlantTable';
 import CreatePlant from './createPlant/CreatePlant';
 import PlantView from './PlantView';
 import AddToGarden from '../gardens/AddToGarden';
-import { Container,  } from 'reactstrap';
-import PlantEdit from './plantEdit/PlantEdit';
+import { Container, } from 'reactstrap';
 import DeletePlant from './DeletePlant';
 import Search from '../searchBar/Search';
 import styled from 'styled-components';
 import Loader from 'react-loader-spinner';
 
-const Button1 = styled.button `
+const Button1 = styled.button`
 border: none;
 height: auto;
 width: auto;
@@ -24,8 +23,8 @@ color: white;
     background-color: #6C757D;
     border-color: #6C757D;
     `
-    
-    const FlexDiv = styled.div`
+
+const FlexDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,53 +83,53 @@ const PlantsIndex = (props) => {
         setGardenModalActive(false)
     }
     // create functions (plantIt)
-    const createActiveOn = () =>{
+    const createActiveOn = () => {
         setCreateActive(true);
     }
-    const createActiveOff = () =>{
+    const createActiveOff = () => {
         setCreateActive(false)
     }
 
     // delete functions
-    const deleteThisPlant = (plant) =>{
+    const deleteThisPlant = (plant) => {
         setPlantToDelete(plant)
     }
-    const deleteModalOn =()=>{
+    const deleteModalOn = () => {
         setDeleteModalActive(true)
     }
-    const deleteModalOff =()=>{
+    const deleteModalOff = () => {
         setDeleteModalActive(false)
     }
 
     useEffect(() => {
         fetchPlants();
     }, [])
- 
-    plants.sort((a, b) => a.plantName.localeCompare(b.plantName));        
+
+    plants.sort((a, b) => a.plantName.localeCompare(b.plantName));
 
 
     return (
         <Container>
             <div>
                 <FlexDiv>
-                <h1>Plant Index</h1>
-                <p>If the plant exists in our database, you can find it below. <br/> If you can't find what you're looking for, add the plant to our database with the button!</p>
-                <Button1 onClick={createActiveOn}>PlantIt!</Button1>
+                    <h1>Plant Index</h1>
+                    <p>If the plant exists in our database, you can find it below. <br /> If you can't find what you're looking for, add the plant to our database with the button!</p>
+                    <Button1 onClick={createActiveOn}>PlantIt!</Button1>
                 </FlexDiv>
-                {loading ? <Loader type='Oval' color='rgb(65, 105, 65)'/>:
-                <DisplayPlants  plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
+                {loading ? <Loader type='Oval' color='rgb(65, 105, 65)' /> :
+                    <DisplayPlants plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
                 }
-            <Search />
+                <Search />
             </div>
-            
+
             <div>
-                {viewActive ? <PlantView plantToView={plantToView} viewPlant={viewPlant}viewOff={viewOff} viewOn={viewOn}addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} deleteModalOn={deleteModalOn} deleteThisPlant={deleteThisPlant}/> : null}
+                {viewActive ? <PlantView plantToView={plantToView} viewPlant={viewPlant} viewOff={viewOff} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} deleteModalOn={deleteModalOn} deleteThisPlant={deleteThisPlant} /> : null}
 
                 {gardenModalActive ? <AddToGarden plantToGarden={plantToGarden} gardenModalOff={gardenModalOff} token={props.token} /> : null}
 
-                {createActive ? <CreatePlant fetchPlants={fetchPlants} token={props.token} createActiveOff={createActiveOff}/> : null }
+                {createActive ? <CreatePlant fetchPlants={fetchPlants} token={props.token} createActiveOff={createActiveOff} /> : null}
 
-                {deleteModalActive ? <DeletePlant plantToDelete={plantToDelete} deleteModalOff={deleteModalOff} viewOff={viewOff} token={props.token} fetchPlants={fetchPlants}/> : null}
+                {deleteModalActive ? <DeletePlant plantToDelete={plantToDelete} deleteModalOff={deleteModalOff} viewOff={viewOff} token={props.token} fetchPlants={fetchPlants} /> : null}
             </div>
         </Container>
     )

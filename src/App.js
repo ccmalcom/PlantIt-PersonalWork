@@ -4,6 +4,7 @@ import Sitebar from './site/Sitebar';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
+import Footer from './site/Footer';
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
       
       {/* <GardenIndex token={sessionToken}/> */}
       {/* <PlantsIndex token={sessionToken}/> */}
-
+      <Footer />
     </div>
   );
 }

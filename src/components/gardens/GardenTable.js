@@ -51,8 +51,6 @@ const GardenTable = (props) => {
     }
     return (
         <>
-            <h2>MyGarden</h2>
-
             <Table striped>
                 <thead>
                     <tr>

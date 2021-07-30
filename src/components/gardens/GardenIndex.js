@@ -10,6 +10,16 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     padding-top: 80px;
+    height: 92vh
+`
+
+const FlexDiv = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 20px 0;
+font-family: 'Yeseva One';
+text-align: center
 `
 
 const GardenIndex = (props) => {
@@ -66,6 +76,10 @@ return (
 <Wrapper>
     <Container>
         <div>
+            <FlexDiv>
+            <h1>MyGarden</h1>
+            <p>Find all of the plants you've tracked to your garden here.</p>
+            </FlexDiv>
             <GardenTable plants={plants} plantToView={plantToView} viewPlant={viewPlant} viewOn={viewOn} fetchGarden={fetchGarden} token={props.token} deletePlant={deletePlant} plantToDelete={plantToDelete} />
         </div>
     <div>
