@@ -65,11 +65,8 @@ useEffect(() => {
 return (
 <Wrapper>
     <Container>
-        {/* <Button2 onClick={fetchGarden}>Refresh MyGarden</Button2> */}
         <div>
             <GardenTable plants={plants} plantToView={plantToView} viewPlant={viewPlant} viewOn={viewOn} fetchGarden={fetchGarden} token={props.token} deletePlant={deletePlant} plantToDelete={plantToDelete} />
-
-            {/* {viewActive ? <GardenView plantToView={plantToView} viewOff={viewOff} token={props.token} fetchGarden={fetchGarden} /> : <></>} */}
         </div>
     <div>
         {viewActive ? <GardenView fetchGarden={fetchGarden} token={props.token} viewOff={viewOff} plantToView={plantToView} setEditModalActive={setEditModalActive}/> : null}

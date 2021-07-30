@@ -8,6 +8,7 @@ import PlantEdit from './plantEdit/PlantEdit';
 import DeletePlant from './DeletePlant';
 import Search from '../searchBar/Search';
 import styled from 'styled-components';
+import Loader from 'react-loader-spinner';
 
 const Button1 = styled.button `
 border: none;
@@ -40,13 +41,14 @@ const PlantsIndex = (props) => {
     const [plantToView, setPlantToView] = useState([]);
     const [gardenModalActive, setGardenModalActive] = useState(false);
     const [plantToGarden, setPlantToGarden] = useState([]);
-    const [editModalActive, setEditModalActive] = useState(false);
-    const [plantToUpdate, setPlantToUpdate] = useState([]);
+
     const [deleteModalActive, setDeleteModalActive] = useState(false);
     const [plantToDelete, setPlantToDelete] = useState([])
+    const [loading, setLoading] = useState(false)
     console.log(plants);
     console.log('view active:', viewActive)
     const fetchPlants = () => {
+        setLoading(true)
         fetch('https://wd85-plant-it2.herokuapp.com/plant/all', {
             method: 'GET',
             headers: new Headers({
@@ -58,6 +60,7 @@ const PlantsIndex = (props) => {
                 setPlants(plantData)
                 console.log(plants, plantData);
             })
+            .then(setLoading(false))
     }
     // view functions
     const viewPlant = (plant) => {
@@ -87,16 +90,7 @@ const PlantsIndex = (props) => {
     const createActiveOff = () =>{
         setCreateActive(false)
     }
-    // edit functions
-    const editPlant = (plant) =>{
-        setPlantToUpdate(plant);
-    }
-    const editModalOn = () =>{
-        setEditModalActive(true);
-    }
-    const editModalOff = () =>{
-        setEditModalActive(false);
-    }
+
     // delete functions
     const deleteThisPlant = (plant) =>{
         setPlantToDelete(plant)
@@ -123,31 +117,23 @@ const PlantsIndex = (props) => {
                 <p>If the plant exists in our database, you can find it below. <br/> If you can't find what you're looking for, add the plant to our database with the button!</p>
                 <Button1 onClick={createActiveOn}>PlantIt!</Button1>
                 </FlexDiv>
+                {loading ? <Loader type='Oval' color='rgb(65, 105, 65)'/>:
                 <DisplayPlants  plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
+                }
             <Search />
             </div>
             
             <div>
-                {viewActive ? <PlantView plantToView={plantToView} viewOff={viewOff} addToGarden={addToGarden} gardenModalOn={gardenModalOn} editPlant={editPlant} editModalOn={editModalOn} fetchPlants={fetchPlants} deleteModalOn={deleteModalOn} deleteThisPlant={deleteThisPlant}/> : null}
+                {viewActive ? <PlantView plantToView={plantToView} viewPlant={viewPlant}viewOff={viewOff} viewOn={viewOn}addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} deleteModalOn={deleteModalOn} deleteThisPlant={deleteThisPlant}/> : null}
 
                 {gardenModalActive ? <AddToGarden plantToGarden={plantToGarden} gardenModalOff={gardenModalOff} token={props.token} /> : null}
 
                 {createActive ? <CreatePlant fetchPlants={fetchPlants} token={props.token} createActiveOff={createActiveOff}/> : null }
 
-                {editModalActive ? <PlantEdit plantToUpdate={plantToUpdate} editModalOff={editModalOff} token={props.token} fetchPlants={fetchPlants} viewOn={viewOn}/>: null}
-
                 {deleteModalActive ? <DeletePlant plantToDelete={plantToDelete} deleteModalOff={deleteModalOff} viewOff={viewOff} token={props.token} fetchPlants={fetchPlants}/> : null}
             </div>
         </Container>
     )
-    // const buttonHandler = () => setCreatePlant(true);
 
-
-    // <>
-    //     {createPlant ? <CreatePlant setCreatePlant={setCreatePlant} sessionToken={props.sessionToken}/> : null}
-    //     {!createPlant ? <Button onClick={buttonHandler}>Plant It!</Button> : null}
-    // </> 
-
-    //!!! Need to add table above to display plants. Style components or bootstrap table --SC
 }
 export default PlantsIndex;

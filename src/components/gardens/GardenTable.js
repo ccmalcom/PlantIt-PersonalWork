@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
+import ImageSearch from '../plants/plantTable/PlantImage';
 
 const Button1 = styled.button`
 background-color: rgb(65, 105, 65);
@@ -12,11 +13,6 @@ const Button2 = styled.button`
 background-color: red;
 width: 100px;
  `
-
-
-
-
-
 
 const GardenTable = (props) => {
 
@@ -40,6 +36,7 @@ const GardenTable = (props) => {
         return (
             <tr key={index}>
                 <td>{plant.plantName}</td>
+                <td><ImageSearch name={plant.plantName}/></td>
                 <td>{plant.typeOfPlant}</td>
                 <td>{plant.lightingNeeds}</td>
                 <td>{plant.waterNeeds}</td>
@@ -60,6 +57,7 @@ const GardenTable = (props) => {
                 <thead>
                     <tr>
                         <th>Plant</th>
+                        <th>Image</th>
                         <th>Type</th>
                         <th>Lighting Needs</th>
                         <th>Water Needs</th>

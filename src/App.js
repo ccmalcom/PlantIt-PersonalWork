@@ -8,6 +8,7 @@ import {
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
+  const [sessionUUID, setSessionUUID] = useState('');
 
   useEffect (() =>{ 
     if(localStorage.getItem('token')){
@@ -15,9 +16,11 @@ function App() {
     }
   }, [])
 
-  const updateToken = (newToken) =>{ 
+  const updateToken = (newToken, newUUID) =>{ 
     localStorage.setItem('token', newToken);
+    localStorage.setItem('UUID', newUUID.toString());
     setSessionToken(newToken);
+    setSessionUUID(newUUID);
     
   }
 

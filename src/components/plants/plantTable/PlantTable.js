@@ -2,17 +2,8 @@ import React, {useState, useMemo} from 'react';
 import styled from 'styled-components';
 import { Table } from 'reactstrap'
 import Pagination from '../../../Pagination';
-// import './Plant.css'
+import PlantMapper from './Plant';
 
-const Button1 = styled.button`
-background-color: #CCCC00;
-margin-right: 20px;
-width: 100px;
-`
-const Button2 = styled.button`
-background-color: rgb(65, 105, 65);
-width: 100px;
-`
 // hook to cause table to re-render when sort button pressed
 
 const DisplayPlants = (props) => {
@@ -25,25 +16,6 @@ const DisplayPlants = (props) => {
         return props.plants.slice(firstPageIndex, lastPageIndex)    
     }, [currentPage, PageSize, props.plants])
 
-    const plantMapper = () =>{
-        return currentTableData.map((plant, index) =>{
-            return(
-            <tr key={index}>
-                <th scope='row'>{plant.plantName}</th>
-                <td>{plant.typeOfPlant}</td>
-                <td>{plant.lightingNeeds}</td>
-                <td>{plant.waterNeeds}</td>
-                <td>{plant.fertilizerNeeds}</td>
-                <td>
-                    <Button1 onClick={()=>{props.gardenModalOn(); props.addToGarden(plant)}}>MyGarden <b>+</b></Button1>
-                    <Button2 onClick={() => {props.viewOn(); props.viewPlant(plant)}}>View</Button2>
-                </td>
-            </tr>
-            )
-        })
-    }
-
-
     return (
         <>
             {/* <button onClick={props.sortByName}>Sort By Name</button> */}
@@ -52,6 +24,7 @@ const DisplayPlants = (props) => {
                 <thead>
                     <tr>
                         <th>Plant</th>
+                        <th>Image</th>
                         <th>Type</th>
                         <th>Lighting Needs</th>
                         <th>Water Needs</th>
@@ -59,7 +32,7 @@ const DisplayPlants = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {plantMapper()}
+                    <PlantMapper plants={props.plants} currentTableData={currentTableData} gardenModalOn={props.gardenModalOn} addToGarden={props.addToGarden} viewOn={props.viewOn} viewPlant={props.viewPlant}/>
                 </tbody>
             </Table>
             <Pagination
