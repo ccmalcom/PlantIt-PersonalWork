@@ -12,7 +12,7 @@ import Loader from 'react-loader-spinner';
 const Button1 = styled.button`
 border: none;
 height: auto;
-width: auto;
+width: 150px;
 padding: 10px 10px;
 border-radius: 15px;
 background-color: rgb(65, 105, 65, 0.9);
@@ -115,6 +115,7 @@ const PlantsIndex = (props) => {
                     <h1>Plant Index</h1>
                     <p>If the plant exists in our database, you can find it below. <br /> If you can't find what you're looking for, add the plant to our database with the button!</p>
                     <Button1 onClick={createActiveOn}>PlantIt!</Button1>
+                    <hr/>
                 </FlexDiv>
                 {loading ? <Loader type='Oval' color='rgb(65, 105, 65)' /> :
                     <DisplayPlants plants={plants} viewPlant={viewPlant} viewOn={viewOn} addToGarden={addToGarden} gardenModalOn={gardenModalOn} fetchPlants={fetchPlants} token={props.token} />
